@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+    /* Palette principale : bleu -> indigo -> violet, inspirée MEDIBOT / HealthSync / MyHHub */
+    --color-primary-50: #eef2ff;
+    --color-primary-100: #e0e7ff;
+    --color-primary-200: #c7d2fe;
+    --color-primary-300: #a5b4fc;
+    --color-primary-400: #818cf8;
+    --color-primary-500: #6366f1;
+    --color-primary-600: #4f46e5;
+    --color-primary-700: #4338ca;
+
+    --color-brand-blue: #4f46e5;
+    --color-brand-violet: #7c3aed;
+    --color-brand-pink: #c026d3;
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+@layer base {
+    body {
+        font-family: var(--font-sans);
+    }
+}
+
+@layer components {
+    /* ---------- Boutons ---------- */
+    .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 font-semibold text-white
+               bg-gradient-to-r from-indigo-600 to-violet-600 shadow-md shadow-indigo-200
+               hover:shadow-lg hover:shadow-indigo-300 hover:-translate-y-0.5
+               active:translate-y-0 transition-all duration-200;
+    }
+    .btn-secondary {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 font-semibold
+               bg-white text-gray-700 border-2 border-gray-200
+               hover:border-indigo-400 hover:text-indigo-700 transition-all duration-200;
+    }
+    .btn-danger {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 font-medium
+               text-red-600 hover:bg-red-50 transition-colors duration-200;
+    }
+
+    /* ---------- Formulaires ---------- */
+    .label {
+        @apply block text-sm font-medium text-gray-700 mb-1.5;
+    }
+    .input {
+        @apply w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-gray-900
+               placeholder:text-gray-400
+               focus:bg-white focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100
+               outline-none transition-all duration-200;
+    }
+
+    /* ---------- Cards ---------- */
+    .card {
+        @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-6;
+    }
+    .card-hover {
+        @apply hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200;
+    }
+
+    /* ---------- Badges / pills ---------- */
+    .badge {
+        @apply inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full;
+    }
+
+    /* ---------- Vitals cards (style HealthSync) ---------- */
+    .vital-card {
+        @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-5 relative overflow-hidden;
+    }
+    .vital-icon {
+        @apply w-11 h-11 rounded-xl flex items-center justify-center text-xl mb-3;
+    }
+
+    /* ---------- Sidebar (style HealthSync / WeCare) ---------- */
+    .sidebar-link {
+        @apply flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-gray-500
+               hover:bg-indigo-50 hover:text-indigo-700 transition-colors duration-150;
+    }
+    .sidebar-link-active {
+        @apply flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold
+               bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-md shadow-indigo-200;
+    }
+
+    /* ---------- Quick links (dashboard) ---------- */
+    .quick-link {
+        @apply flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-200
+               hover:border-indigo-300 hover:shadow-md transition-all duration-200;
+    }
+    .quick-link:hover {
+        @apply -translate-y-0.5;
+    }
+}
